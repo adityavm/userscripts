@@ -4,7 +4,9 @@
 // @namespace      Aditya V. Mukherjee
 // @description    Shows changes that happened on Hacker News' front page while you weren't looking.
 // @include        http://news.ycombinator.com/
-// @include	   http://news.ycombinator.com/news
+// @include	   	http://news.ycombinator.com/news
+// @match		http://news.ycombinator.com/
+// @match		http://news.ycombinator.com/news
 // ==/UserScript==
 
 (function(window){

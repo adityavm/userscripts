@@ -4,6 +4,7 @@
 // @namespace      Aditya V. Mukherjee
 // @description    Purely cosmetic (Helvetica!) change to HN homepage, now in UserJS form.
 // @include        http://news.ycombinator.com/*
+// @match			http://news.ycombinator.com/*
 // ==/UserScript==
 
 (function(){
