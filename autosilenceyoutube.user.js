@@ -7,6 +7,18 @@
 // ==/UserScript==
 
 var loc = window.location.href;
+var tokens = (function(){//closure?
+	if(loc.indexOf('?') == -1)
+		return {};
+	
+	var t = {}, qs = loc.substring(loc.indexOf('?')+1).split('&');//query string
+	for(i in qs){
+		var mt = qs[i].split('=');
+		t[mt[0]] = mt[1];
+	}
+	return t;
+})();
+
 if(loc.indexOf('results') != -1){//on a search results page
 	/**
 	 * Rewrite the links so that they
@@ -33,6 +45,15 @@ if(loc.indexOf('results') != -1){//on a search results page
 }
 
 if(loc.indexOf('watch') != -1){//on a video page
+	if('disable_asyujs' in tokens && tokens['disable_asyujs'] == 1)
+		return;
+	
 	if(loc.indexOf('quietube') == -1)
 		window.location = "http://quietube.com/v.php/"+loc;
+}
+
+if(loc.indexOf('quietube') != -1){//on a quietube page
+	//rewrite the link back to youtube with a ?disable_asyujs=1
+	var link = document.getElementById('credits').getElementsByTagName('p')[0].getElementsByTagName('a')[2];
+	link.href += "&disable_asyujs=1";
 }
