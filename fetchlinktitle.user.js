@@ -6,6 +6,8 @@
 // @license         MIT
 // @version	        0.2
 // @include         *
+// @exclude			*hckrnews.com*
+// @exclude			*google.com*
 // @released        2013-10-17
 // @compatible      Greasemonkey, GreaseKit
 // ==/UserScript==
